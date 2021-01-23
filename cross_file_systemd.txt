@@ -1,0 +1,22 @@
+ 
+[host_machine]
+system = 'linux'
+cpu_family = 'arm'
+cpu = 'armv7a'
+endian = 'little'
+
+[properties]
+c_args = ['-D__UAPI_DEF_ETHHDR=0']
+c_link_args = []
+sys_root = '/opt/x-tools/arm-mazda-linux-musleabi/arm-mazda-linux-musleabi/sysroot'
+pkg_config_libdir = '/opt/x-tools/arm-mazda-linux-musleabi/arm-mazda-linux-musleabi/sysroot/usr/lib/pkgconfig'
+
+[binaries]
+c = 'arm-mazda-linux-musleabi-gcc'
+cpp = 'arm-mazda-linux-musleabi-g++'
+ar = 'arm-mazda-linux-musleabi-ar'
+ld = 'arm-mazda-linux-musleabi-ld'
+objcopy = 'arm-mazda-linux-musleabi-objcopy'
+strip = 'arm-mazda-linux-musleabi-strip'
+pkg-config = 'pkg-config'
+pkgconfig = 'pkg-config'
