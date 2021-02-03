@@ -1,4 +1,4 @@
-wget https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protobuf-cpp-3.14.0.tar.gz
+wget -q https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protobuf-cpp-3.14.0.tar.gz
 tar xvf protobuf-cpp-3.14.0.tar.gz
 cd protobuf-3.14.0 || exit
 ./configure

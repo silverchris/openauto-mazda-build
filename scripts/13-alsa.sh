@@ -1,6 +1,6 @@
 source "$(dirname "$0")/settings.sh"
 
-wget ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.4.tar.bz2
+wget -q ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.4.tar.bz2
 tar xf alsa-lib-1.2.4.tar.bz2
 cd alsa-lib-1.2.4 || exit
 patch -p1 <../patches/alsa/fix-dlo.patch
