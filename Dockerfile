@@ -23,15 +23,12 @@ RUN ct-ng build || ( cat build.log && exit 1 )
 
 FROM alpine:latest
 COPY --from=0 /opt/x-tools /opt/x-tools
-RUN apk update
-RUN apk add alpine-sdk wget xz git bash autoconf automake bison flex texinfo help2man gawk libtool ncurses-dev gettext-dev rsync coreutils libtool pkgconfig meson ninja gperf cmake linux-headers
+RUN apk update && apk add alpine-sdk wget xz git bash autoconf automake bison flex texinfo help2man gawk libtool ncurses-dev gettext-dev rsync coreutils libtool pkgconfig meson ninja gperf cmake linux-headers expat expat-dev
 RUN mkdir /root/build
 WORKDIR /root/build
-ADD scripts ./scripts
-ADD cross_file.txt .
-ADD cross_file_systemd.txt .
-ADD patches ./patches
-ADD arm-mazda-linux-musleabi.toolchain .
+COPY scripts ./scripts
+COPY cross_file.txt cross_file_systemd.txt arm-mazda-linux-musleabi.toolchain ./
+COPY patches ./patches
 RUN sh scripts/09-protobuf.sh
 RUN sh scripts/10-openssl.sh
 RUN sh scripts/11-protobuf.sh
@@ -45,6 +42,6 @@ RUN sh scripts/100_libcap.sh
 RUN sh scripts/101_util-linux.sh
 RUN sh scripts/102-systemd.sh
 RUN sh scripts/103-sdbus-cpp.sh
-
+RUN sh scripts/104-sdbus-c++-xml2cpp.sh
 
 

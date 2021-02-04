@@ -8,9 +8,3 @@ cd build || exit
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../../arm-mazda-linux-musleabi.toolchain -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SHARED_LIBS=off
 make
 make install
-
-#cd ..
-#mkdir hostbuild
-#cd hostbuild
-#cmake ../tools/ -DCMAKE_BUILD_TYPE=Release
-#make
