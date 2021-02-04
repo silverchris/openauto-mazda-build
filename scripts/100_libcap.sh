@@ -5,5 +5,5 @@ tar xf libcap-2.46.tar.xz
 cd libcap-2.46 || exit
 sed -i 's^LIBDIR=$(lib_prefix)/$(lib)^LIBDIR=/usr/lib/^g' -i Make.Rules
 make -C libcap _makenames
-make CROSS_COMPILE=/home/silverchris/x-tools/arm-mazda-linux-musleabi/bin/arm-mazda-linux-musleabi-
+make CROSS_COMPILE=/opt/x-tools/arm-mazda-linux-musleabi/bin/arm-mazda-linux-musleabi-
 make install
