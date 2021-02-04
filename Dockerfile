@@ -23,7 +23,7 @@ RUN ct-ng build || ( cat build.log && exit 1 )
 
 FROM alpine:latest
 COPY --from=0 /opt/x-tools /opt/x-tools
-RUN apk update && apk add alpine-sdk wget xz git bash autoconf automake bison flex texinfo help2man gawk libtool ncurses-dev gettext-dev rsync coreutils libtool pkgconfig meson ninja gperf cmake linux-headers expat expat-dev
+RUN apk update && apk add alpine-sdk wget xz git bash autoconf automake bison flex texinfo help2man gawk libtool ncurses-dev gettext-dev rsync coreutils libtool pkgconfig meson ninja gperf cmake linux-headers expat expat-dev zip
 RUN mkdir /root/build
 WORKDIR /root/build
 COPY scripts ./scripts
