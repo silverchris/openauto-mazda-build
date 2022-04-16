@@ -53,7 +53,7 @@ RUN sh scripts/12-libusb.sh
 RUN sh scripts/13-alsa.sh
 RUN sh scripts/14-asio.sh
 RUN sh scripts/15-sigc++.sh
-RUN sh scripts/16-boost.sh
+#RUN sh scripts/16-boost.sh
 RUN sh scripts/18-libevdev.sh
 RUN sh scripts/19-dbus-cxx.sh
 RUN sh scripts/20-dbus-cxx-tools.sh
