@@ -6,7 +6,7 @@ fi
 tar xvf protobuf-cpp-3.14.0.tar.gz
 cd protobuf-3.14.0 || exit
 ./configure
-make -j32
+make -j`nproc`
 make install
 cd ..
 rm -rf protobuf-3.14.0

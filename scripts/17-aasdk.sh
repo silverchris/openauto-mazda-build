@@ -6,5 +6,5 @@ cd aasdk || exit
 git checkout development
 git pull
 cmake -DCMAKE_TOOLCHAIN_FILE=../arm-mazda-linux-musleabi.toolchain -DCMAKE_INSTALL_PREFIX=/usr .
-make -j10
+make -j`nproc`
 make install

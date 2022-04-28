@@ -16,5 +16,5 @@ cd dbus-cxx || exit
 mkdir build
 cd build || exit
 cmake .. -DENABLE_TOOLS=ON -DBUILD_TESTING=off
-make
+make -j`nproc`
 make install
