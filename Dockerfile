@@ -19,9 +19,6 @@ RUN mkdir -p /home/ctng/build
 
 WORKDIR /home/ctng/build
 ADD .config .
-COPY --chown=ctng source /home/ctng/src
-RUN ls /home/ctng/src
-RUN ct-ng source
 RUN ct-ng build || ( cat build.log && exit 1 )
 #USER root
 #RUN apk add openssh
@@ -44,8 +41,6 @@ WORKDIR /root/build
 COPY scripts ./scripts
 COPY cross_file.txt cross_file_systemd.txt arm-mazda-linux-musleabi.toolchain ./
 COPY patches ./patches
-COPY sources ./sources
-RUN mv sources/* .
 RUN sh scripts/09-protobuf.sh
 RUN sh scripts/10-openssl.sh
 RUN sh scripts/11-protobuf.sh
