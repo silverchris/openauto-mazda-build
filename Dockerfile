@@ -9,7 +9,7 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositor
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 RUN apk update
 RUN apk add alpine-sdk wget xz git bash autoconf automake bison flex texinfo help2man gawk libtool ncurses-dev gettext-dev python3-dev rsync coreutils
-RUN git clone https://github.com/crosstool-ng/crosstool-ng.git
+RUN git clone --branch crosstool-ng-1.25.0 https://github.com/crosstool-ng/crosstool-ng.git
 RUN cd crosstool-ng && ./bootstrap && ./configure --prefix=/opt/ctng/ && make && make install
 ENV PATH="/opt/ctng/bin:${PATH}"
 RUN mkdir /opt/x-tools && chown ctng /opt/x-tools && chmod 777 /opt/x-tools
@@ -57,6 +57,7 @@ RUN sh scripts/15-sigc++.sh
 RUN sh scripts/18-libevdev.sh
 RUN sh scripts/19-dbus-cxx.sh
 RUN sh scripts/20-dbus-cxx-tools.sh
+RUN sh scripts/21-fdk-aac.sh
 RUN ( \
     echo 'LogLevel DEBUG2'; \
     echo 'PermitRootLogin yes'; \
