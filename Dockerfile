@@ -19,7 +19,7 @@ RUN mkdir -p /home/ctng/build
 
 WORKDIR /home/ctng/build
 ADD .config .
-COPY --chown=ctng source /home/ctng/src
+#COPY --chown=ctng source /home/ctng/src
 RUN ls /home/ctng/src
 RUN ct-ng source
 RUN ct-ng build || ( cat build.log && exit 1 )
