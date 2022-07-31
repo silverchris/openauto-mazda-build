@@ -44,7 +44,7 @@ WORKDIR /root/build
 COPY scripts ./scripts
 COPY cross_file.txt cross_file_systemd.txt arm-mazda-linux-musleabi.toolchain ./
 COPY patches ./patches
-COPY sources ./sources
+#COPY sources ./sources
 RUN mv sources/* .
 RUN sh scripts/09-protobuf.sh
 RUN sh scripts/10-openssl.sh
