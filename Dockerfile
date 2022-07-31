@@ -19,21 +19,8 @@ RUN mkdir -p /home/ctng/build
 
 WORKDIR /home/ctng/build
 ADD .config .
-#COPY --chown=ctng source /home/ctng/src
-RUN ls /home/ctng/src
 RUN ct-ng source
 RUN ct-ng build || ( cat build.log && exit 1 )
-#USER root
-#RUN apk add openssh
-#RUN ( \
-#    echo 'LogLevel DEBUG2'; \
-#    echo 'PermitRootLogin yes'; \
-#    echo 'PasswordAuthentication yes'; \
-#    echo 'Subsystem sftp internal-sftp'; \
-#  ) > /etc/ssh/sshd_config_test_clion \
-#  && mkdir /run/sshd
-#RUN cd /etc/ssh && ssh-keygen -A
-#CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_test_clion"]
 
 
 FROM alpine:latest
@@ -44,8 +31,6 @@ WORKDIR /root/build
 COPY scripts ./scripts
 COPY cross_file.txt cross_file_systemd.txt arm-mazda-linux-musleabi.toolchain ./
 COPY patches ./patches
-#COPY sources ./sources
-RUN mv sources/* .
 RUN sh scripts/09-protobuf.sh
 RUN sh scripts/10-openssl.sh
 RUN sh scripts/11-protobuf.sh
@@ -53,7 +38,6 @@ RUN sh scripts/12-libusb.sh
 RUN sh scripts/13-alsa.sh
 RUN sh scripts/14-asio.sh
 RUN sh scripts/15-sigc++.sh
-#RUN sh scripts/16-boost.sh
 RUN sh scripts/18-libevdev.sh
 RUN sh scripts/19-dbus-cxx.sh
 RUN sh scripts/20-dbus-cxx-tools.sh
