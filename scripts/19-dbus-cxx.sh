@@ -1,7 +1,7 @@
 source "$(dirname "$0")/settings.sh"
 
-#git clone https://github.com/dbus-cxx/dbus-cxx.git
-git clone https://github.com/silverchris/dbus-cxx.git
+git clone https://github.com/dbus-cxx/dbus-cxx.git
+#git clone https://github.com/silverchris/dbus-cxx.git
 cd dbus-cxx || exit
 sed -i 's/SHARED/STATIC/g' CMakeLists.txt
 mkdir build

@@ -11,7 +11,8 @@ ninja
 ninja install
 
 rm dbus-cxx -rv
-git clone https://github.com/silverchris/dbus-cxx.git
+git clone https://github.com/dbus-cxx/dbus-cxx.git
+#git clone https://github.com/silverchris/dbus-cxx.git
 cd dbus-cxx || exit
 mkdir build
 cd build || exit
